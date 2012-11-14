@@ -1,5 +1,3 @@
-<h1>Links <small><%= link_to links_path(format: :rss) do %><i class="icon-rss"></i><% end %></h1>
-
 <% @links.each do |link| %>
   <div class="link well well-small">
     <%= link_to link.url do %>

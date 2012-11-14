@@ -47,8 +47,8 @@
           </a>
           <a class="brand" href="#">Feedist</a>
           <div class="container nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "By Chris Oliver", "http://excid3.com" %></li>
+            <ul class="nav pull-right">
+              <li><%= link_to links_path(format: :rss) do %>RSS Feed <i class="icon-rss"></i><% end %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -56,19 +56,25 @@
     </div>
 
     <div class="container">
-        <div class="row">
-          <div class="span9">
-             <%= yield %>
-          </div>
-          <div class="span3">
-            <div class="well sidebar-nav">
-              <%= render partial: "form" %>
-            </div><!--/.well -->
-          </div><!--/span-->
-        </div><!--/row-->
+      <div class="row">
+        <div class="span9">
+          <%= yield %>
+        </div>
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <%= render partial: "form" %>
+          </div><!--/.well -->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr/>
 
       <footer>
-        <p>&copy; Company 2012</p>
+        <p><small>
+          Made by <%= link_to "Chris Oliver", "http://excid3.com" %> |
+          <%= link_to "@excid3", "https://twitter.com/excid3" %> |
+          <%= link_to "Feedist on Github", "https://github.com/excid3/feedist" %>
+        </small></p>
       </footer>
 
     </div> <!-- /container -->
