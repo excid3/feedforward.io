@@ -40,11 +40,13 @@
         <div class="span9">
           <%= yield %>
         </div>
+        <% unless @link.persisted? %>
         <div class="span3">
           <div class="well sidebar-nav">
             <%= render partial: "form" %>
           </div><!--/.well -->
         </div><!--/span-->
+        <% end %>
       </div><!--/row-->
 
       <hr/>
