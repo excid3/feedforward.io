@@ -1,8 +1,8 @@
 xml.instruct! :xml, version: "1.0"
 xml.rss version: "2.0" do
   xml.channel do
-    xml.title "Superhero Articles"
-    xml.description "From Batman to Superman"
+    xml.title "Feedist"
+    xml.description "Seriously Awesome Articles"
     xml.link links_url
 
     @links.each do |link|
