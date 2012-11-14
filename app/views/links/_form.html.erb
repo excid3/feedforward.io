@@ -1,4 +1,4 @@
-<%= form_for(@link) do |f| %>
+<%= form_for(@link, class: "form-inline") do |f| %>
   <% if @link.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="control-group">
+    <div class="input-background">
+      <i class="icon-font"></i>
+      <%= f.text_field :title, placeholder: "Title" %>
+    </div>
+    <div class="input-background">
+      <i class="icon-link"></i>
+      <%= f.text_field :url, placeholder: "URL" %>
+    </div>
+    <%= f.submit "Submit This Link", class: "btn btn-small" %>
   </div>
 <% end %>

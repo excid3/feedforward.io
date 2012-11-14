@@ -1,23 +1,19 @@
-<h1>Links</h1>
-
-<%= render partial: "form" %>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Url</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Links <small><%= link_to links_path(format: :rss) do %><i class="icon-rss"></i><% end %></h1>
 
 <% @links.each do |link| %>
-  <tr>
-    <td><%= link.title %></td>
-    <td><%= link.url %></td>
-    <td><%= link_to 'Show', link %></td>
-    <td><%= link_to 'Edit', edit_link_path(link) %></td>
-    <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <div class="link well well-small">
+    <%= link_to link.url do %>
+      <strong><%= link.title %></strong>
+      <small>(<%= link.url %>)</small>
+    <% end %>
+
+    <div class="link-actions">
+      <%= link_to edit_link_path(link) do %>
+        <i class="icon-cog"></i>
+      <% end %>
+      <%= link_to link, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="icon-trash"></i>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-</table>
