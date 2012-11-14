@@ -1,6 +1,6 @@
 <% @links.each do |link| %>
   <div class="link well well-small">
-    <%= link_to link.url, :target=> "_blank" do %>
+    <%= link_to link.url, target: "_blank" do %>
       <strong><%= link.title %></strong>
       <small>(<%= link.url %>)</small>
     <% end %>
