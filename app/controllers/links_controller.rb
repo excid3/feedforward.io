@@ -1,8 +1,10 @@
 class LinksController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]
+
   # GET /links
   # GET /links.json
   def index
-    @links = Link.order("created_at DESC")
+    @links = Link.order("created_at DESC").limit(10)
     @link = Link.new
 
     respond_to do |format|

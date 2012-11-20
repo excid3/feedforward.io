@@ -30,8 +30,10 @@
 // Example:
 // @linkColor: #ff0000;
 
-body {
-  margin-top: 90px;
+@media (min-width: 980px) {
+  body {
+    margin-top: 90px;
+  }
 }
 
 .link {
@@ -52,6 +54,10 @@ body {
   position: relative;
   display: inline-block;
 
+  @media (max-width: 767px) {
+    display: block;
+  }
+
   input { padding-right: 26px; }
 
   i {
@@ -59,6 +65,18 @@ body {
     right: 10px;
     top: 5px;
     pointer-events: none;
+  }
+}
+
+.new-link {
+  @media (max-width: 767px) {
+    text-align: right;
+  }
+  @media (min-width: 768px) {
+    text-align: center;
+  }
+  input[type="submit"] {
+    margin-bottom: 10px;
   }
 }
 

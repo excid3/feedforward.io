@@ -1,3 +1,5 @@
+<%= render "form" if user_signed_in? %>
+
 <% @links.each do |link| %>
   <div class="link well well-small">
     <%= link_to link.url, target: "_blank" do %>
@@ -5,13 +7,15 @@
       <small>(<%= link.url %>)</small>
     <% end %>
 
-    <div class="link-actions">
-      <%= link_to edit_link_path(link) do %>
-        <i class="icon-cog"></i>
-      <% end %>
-      <%= link_to link, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <i class="icon-trash"></i>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="link-actions">
+        <%= link_to edit_link_path(link) do %>
+          <i class="icon-cog"></i>
+        <% end %>
+        <%= link_to link, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="icon-trash"></i>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 <% end %>

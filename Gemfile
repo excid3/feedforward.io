@@ -7,8 +7,10 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3', group: :development
 gem 'pg', group: :production
-gem 'twitter-bootstrap-rails'
-gem 'thin'
+gem 'twitter-bootstrap-rails', '~> 2.1.6'
+gem 'thin', '~> 1.5.0'
+gem 'devise', '~> 2.1.2'
+gem "devise_invitable", "~> 1.1.3"
 
 # Gems used only for assets and not required
 # in production environments by default.
