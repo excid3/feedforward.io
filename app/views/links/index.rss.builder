@@ -4,6 +4,7 @@ xml.rss version: "2.0" do
     xml.title "Feedist"
     xml.description "Seriously Awesome Articles"
     xml.link links_url
+    xml.url "http://feedist.herokuapp.com/assets/favicon.png"
 
     @links.each do |link|
       xml.item do
