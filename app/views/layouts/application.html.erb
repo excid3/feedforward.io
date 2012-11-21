@@ -21,13 +21,13 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <%= link_to "Feed Forward", root_url, class: "brand" %>
-          <div class="container nav-collapse">
+          <%= link_to root_url, class: "brand" do %>
+            <b>FeedForward.io</b>
+            <div class="inline hidden-phone">
+              | <small>Knowledge is meant to be shared</small>
+            </div>
+          <% end %>
+          <div class="container">
             <ul class="nav pull-right">
               <li><%= link_to "http://feeds.feedburner.com/FeedForwardio" do %>RSS Feed <i class="icon-rss"></i><% end %></li>
             </ul>
@@ -41,7 +41,7 @@
         <div class="span12">
 
           <% if notice %>
-            <div class="alert alert-info">
+            <div class="alert">
               <button type="button" class="close" data-dismiss="alert">×</button>
               <%= notice %>
             </div>
@@ -61,6 +61,10 @@
       <hr/>
 
       <footer>
+        <div class="pull-left">
+          <small>FeedForward.io is built by <%= link_to "Chris Oliver", "http://excid3.com" %> and <%= link_to "Rob Long", "http://archetyp.al/" %></small>
+        </div>
+
         <div class='pull-right'>
           <small>
             <% if user_signed_in? %>
@@ -71,10 +75,6 @@
             <% end %>
           </small>
         </div>
-        <p><small>
-          Made by <%= link_to "Chris Oliver", "http://excid3.com", target: "_blank" %> |
-          <%= link_to "@excid3", "https://twitter.com/excid3", target: "_blank" %>
-        </small></p>
       </footer>
 
     </div> <!-- /container -->

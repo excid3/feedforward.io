@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Link.order("created_at DESC").limit(10)
+    @links = Link.order("created_at DESC")
     @link = Link.new
 
     respond_to do |format|
@@ -80,7 +80,7 @@ class LinksController < ApplicationController
     @link.destroy
 
     respond_to do |format|
-      format.html { redirect_to links_url }
+      format.html { redirect_to links_url, notice: "Link was successfully removed" }
       format.json { head :no_content }
     end
   end

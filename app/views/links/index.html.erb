@@ -1,21 +1,30 @@
 <%= render "form" if user_signed_in? %>
 
-<% @links.each do |link| %>
-  <div class="link well well-small">
-    <%= link_to link.url, target: "_blank" do %>
-      <strong><%= link.title %></strong>
-      <small>(<%= link.url %>)</small>
-    <% end %>
-
-    <% if user_signed_in? %>
-      <div class="link-actions">
-        <%= link_to edit_link_path(link) do %>
-          <i class="icon-cog"></i>
+<div class="row">
+  <div class="span8">
+    <% @links.each do |link| %>
+      <div class="link well well-small">
+        <%= link_to link.url, target: "_blank" do %>
+          <strong><%= link.title %></strong>
+          <br/>
+          <small>(<%= link.url %>)</small>
         <% end %>
-        <%= link_to link, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <i class="icon-trash"></i>
+
+        <% if user_signed_in? %>
+          <div class="link-actions">
+            <%= link_to edit_link_path(link) do %>
+              <i class="icon-cog"></i>
+            <% end %>
+            <%= link_to link, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="icon-trash"></i>
+            <% end %>
+          </div>
         <% end %>
       </div>
     <% end %>
   </div>
-<% end %>
+
+  <div class="span4">
+    <%= render "about" %>
+  </div>
+</div>

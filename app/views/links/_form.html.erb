@@ -1,7 +1,7 @@
 <%= form_for(@link, class: "form-inline") do |f| %>
   <% if @link.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
+    <div id="error_explanation" class="alert alert-error">
+      <p><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</p>
 
       <ul>
       <% @link.errors.full_messages.each do |msg| %>
@@ -20,6 +20,6 @@
       <i class="icon-link"></i>
       <%= f.text_field :url, placeholder: "URL" , :class => "span4" %>
     </div>
-    <%= f.submit "Submit Link", class: "btn" %>
+    <%= f.submit "Submit Link", class: "btn btn-success" %>
   </div>
 <% end %>
