@@ -1,4 +1,4 @@
-Feedist::Application.configure do
+FeedForward::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -65,5 +65,5 @@ Feedist::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.action_mailer.default_url_options = { :host => 'feedist.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'feedforward.io' }
 end

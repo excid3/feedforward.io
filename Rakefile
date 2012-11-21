@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Feedist::Application.load_tasks
+FeedForward::Application.load_tasks
