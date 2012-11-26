@@ -11,6 +11,7 @@ gem 'twitter-bootstrap-rails', '~> 2.1.6'
 gem 'thin', '~> 1.5.0'
 gem 'devise', '~> 2.1.2'
 gem "devise_invitable", "~> 1.1.3"
+gem "gravatar_image_tag", "~> 1.1.3"
 
 # Gems used only for assets and not required
 # in production environments by default.
