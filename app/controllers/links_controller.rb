@@ -44,7 +44,7 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.new(params[:link])
+    @link = current_user.links.new(params[:link])
 
     respond_to do |format|
       if @link.save

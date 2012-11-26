@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126164539) do
+ActiveRecord::Schema.define(:version => 20121126170757) do
 
   create_table "links", :force => true do |t|
     t.string   "title"
     t.string   "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -41,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20121126164539) do
     t.string   "invited_by_type"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "twitter"
+    t.string   "site"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
