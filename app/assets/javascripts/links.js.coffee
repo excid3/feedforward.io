@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$("#link_url").on "paste", ->
+  if $("#link_title").val() == ""
+    setTimeout ( ->
+      $.get "/links/title",
+        page: $("#link_url").val(),
+        (data) ->
+          $("#link_title").val(data)
+    ), 20

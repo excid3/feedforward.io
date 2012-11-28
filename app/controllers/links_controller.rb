@@ -84,4 +84,11 @@ class LinksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def title
+    require 'open-uri'
+    open(params[:page]) do |f|
+      render text: f.read[/<title>\s*(.*)\s*<\/title>/iu, 1]
+    end
+  end
 end
