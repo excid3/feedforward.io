@@ -5,13 +5,16 @@
     <% @links.each do |link| %>
       <div class="link well well-small">
         <div class="details">
-          <div>
-            Posted <%= time_ago_in_words link.created_at %> ago by <%= link.user.try(:full_name) %>
-          </div>
+          Posted <%= time_ago_in_words link.created_at %> ago by <%= link.user.try(:full_name) %>
         </div>
+
         <%= link_to link.url, target: "_blank" do %>
           <strong><%= link.title %></strong>
-          <br/>
+        <% end %>
+
+        <br/>
+
+        <%= link_to link.url, target: "_blank" do %>
           <small><%= link.url %></small>
         <% end %>
 

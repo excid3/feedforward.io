@@ -61,9 +61,15 @@ body {
   font-size: 1.2em;
   word-wrap: break-word;
 
-  a { color: black; }
+  a {
+    small {
+      color: #444;
+      font-size: 0.8em;
+    }
+  }
 
   .details {
+    color: #888;
     float: right;
     font-size: 0.7em;
   }
@@ -163,7 +169,7 @@ body {
 @baseLineHeight:        20px;
 @altFontFamily:         @monoFontFamily;
 
-@headingsFontFamily:    'Telex', sans-serif; // empty to use BS default, @baseFontFamily
+@headingsFontFamily:    'proxima-nova', sans-serif; // empty to use BS default, @baseFontFamily
 @headingsFontWeight:    bold;    // instead of browser default, bold
 @headingsColor:         #317EAC; // empty to use BS default, @textColor
 
