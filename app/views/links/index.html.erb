@@ -8,15 +8,11 @@
           Posted <%= time_ago_in_words link.created_at %> ago by <%= link.user.try(:full_name) %>
         </div>
 
-        <%= link_to link.url, target: "_blank" do %>
-          <strong><%= link.title %></strong>
-        <% end %>
+        <%= link_to link.url, target: "_blank" do %><strong><%= link.title %></strong><% end %>
 
         <br/>
 
-        <%= link_to link.url, target: "_blank" do %>
-          <small><%= link.url %></small>
-        <% end %>
+        <%= link_to link.url, target: "_blank" do %><small><%= link.url %></small><% end %>
 
         <% if user_signed_in? %>
           <div class="link-actions">
