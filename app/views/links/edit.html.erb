@@ -4,13 +4,13 @@
 
 <% if @link.persisted? %>
   <div class="well">
-    <% if @link.podcast %>
+    <% if @link.podcast.persisted? %>
       <h4>Podcast</h4>
       <%= link_to @link.podcast.audio.url do %>
         <i class="icon-headphones"></i> <%= @link.podcast.name %>
       <% end %>
     <% else %>
-      <%= render partial "podcast_form" %>
+      <%= render partial: "podcast_form" %>
     <% end %>
   </div>
 <% end %>
