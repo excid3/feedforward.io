@@ -11,14 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126170757) do
+ActiveRecord::Schema.define(:version => 20121209184752) do
 
   create_table "links", :force => true do |t|
     t.string   "title"
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.integer  "user_id"
+    t.string   "podcast_file_name"
+    t.string   "podcast_content_type"
+    t.integer  "podcast_file_size"
+    t.datetime "podcast_updated_at"
+  end
+
+  create_table "podcasts", :force => true do |t|
+    t.string   "name"
+    t.integer  "link_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
   end
 
   create_table "users", :force => true do |t|

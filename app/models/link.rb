@@ -1,5 +1,9 @@
 class Link < ActiveRecord::Base
-  attr_accessible :title, :url
   belongs_to :user
+  has_one :podcast
+
+  attr_accessible :title, :url, :podcast_attributes
+  accepts_nested_attributes_for :podcast
+
   validates :title, :url, presence: true
 end

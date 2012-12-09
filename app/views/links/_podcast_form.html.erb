@@ -1,0 +1,8 @@
+<%= form_for(@link, class: "form-inline") do |f| %>
+  <h4>Upload a podcast</h4>
+  <%= f.fields_for :podcast do |p| %>
+    <div><%= p.text_field :name, placeholder: "Name" %></div>
+    <div><%= p.file_field :audio %></div>
+  <% end %>
+  <div><%= f.submit "Upload", class: "btn" %></div>
+<% end %>

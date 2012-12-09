@@ -10,6 +10,14 @@
   <%= @link.url %>
 </p>
 
+<% if @link.podcast %>
+<p>
+  <b>Podcast:</b>
+  <%= link_to @link.podcast.audio.url do %>
+    <i class="icon-headphones"></i>
+  <% end %>
+</p>
+<% end %>
 
 <%= link_to 'Edit', edit_link_path(@link) %> |
 <%= link_to 'Back', links_path %>

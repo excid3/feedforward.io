@@ -1,9 +1,11 @@
 FeedForward::Application.routes.draw do
   devise_for :users
+
   resources :links do
-    collection do
-      get :title
-    end
+    collection { get :title }
   end
+
+  resources :podcasts
+
   root to: "links#index"
 end

@@ -1,6 +1,69 @@
-// Place all the styles related to the links controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: "proxima-nova", sans-serif;
+  @media (min-width: 980px) { margin-top: 90px; }
+}
+
+input[type="file"] { line-height: normal; }
+
+.well { box-shadow:none !important; }
+
+.field_with_errors {
+  input[type="text"] { border: 1px solid red; }
+}
+
+.navbar .brand, .navbar .nav > li > a  {
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+  .inline { display: inline; }
+}
+
+.link {
+  font-size: 1.2em;
+  word-wrap: break-word;
+
+  a {
+    small {
+      color: #444;
+      font-size: 0.8em;
+    }
+  }
+
+  .details {
+    color: #888;
+    float: right;
+    font-size: 0.7em;
+  }
+
+  .link-actions {
+    float: right;
+    display: none;
+  }
+
+  &:hover {
+    .link-actions { display: block; }
+  }
+}
+
+.input-background {
+  position: relative;
+  display: inline-block;
+
+  @media (max-width: 767px) { display: block; }
+
+  input { padding-right: 26px; }
+
+  i {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    pointer-events: none;
+  }
+}
+
+.new-link {
+  @media (max-width: 767px) { text-align: right; }
+  @media (min-width: 768px) { text-align: center; }
+  input[type="submit"] { margin-bottom: 10px; }
+}
 
 .contributor {
   position: relative;
@@ -17,3 +80,6 @@
   }
 }
 
+.badge {
+  a { color: white; }
+}

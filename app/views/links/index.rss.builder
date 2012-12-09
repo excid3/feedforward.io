@@ -3,8 +3,9 @@ xml.rss version: "2.0" do
   xml.channel do
     xml.title "Feed Forward"
     xml.description "Seriously Awesome Articles"
-    xml.link links_url
+    xml.link root_url
     xml.url "http://feedist.herokuapp.com/assets/favicon.png"
+    xml.language "en-US"
 
     @links.each do |link|
       xml.item do

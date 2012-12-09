@@ -6,12 +6,13 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3', group: :development
-gem 'pg', group: :production
+gem 'mysql2', group: :production
 gem 'twitter-bootstrap-rails', '~> 2.1.6'
 gem 'thin', '~> 1.5.0'
 gem 'devise', '~> 2.1.2'
 gem "devise_invitable", "~> 1.1.3"
 gem "gravatar_image_tag", "~> 1.1.3"
+gem "paperclip", "~> 3.3.1"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,5 +29,7 @@ gem 'jquery-rails'
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  gem "capistrano"
+  gem "rvm-capistrano"
 end
 

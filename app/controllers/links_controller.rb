@@ -8,7 +8,7 @@ class LinksController < ApplicationController
     @link = Link.new
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @links }
       format.rss
     end
@@ -39,6 +39,7 @@ class LinksController < ApplicationController
   # GET /links/1/edit
   def edit
     @link = Link.find(params[:id])
+    @link.podcast ||= Podcast.new
   end
 
   # POST /links

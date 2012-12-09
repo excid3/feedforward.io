@@ -9,10 +9,17 @@
         </div>
 
         <%= link_to link.url, target: "_blank" do %><strong><%= link.title %></strong><% end %>
-
         <br/>
+        <%= link_to link.url, target: "_blank" do %><small><%= truncate link.url, length: 80 %></small><% end %>
 
-        <%= link_to link.url, target: "_blank" do %><small><%= link.url %></small><% end %>
+        <% if link.podcast %>
+          <br />
+          <span class="badge badge-success">
+            <%= link_to link.podcast.audio.url do %>
+              <i class="icon-headphones"></i> Podcast Available
+            <% end %>
+          </span>
+        <% end %>
 
         <% if user_signed_in? %>
           <div class="link-actions">
