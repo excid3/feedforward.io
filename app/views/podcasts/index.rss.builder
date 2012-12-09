@@ -1,9 +1,9 @@
-title = "FeedForward Podcast"
+title = "FeedForward"
 author = "Chris Oliver & Rob Log"
-description = "Every week you will be treated to a new RailsCasts episode featuring tips and tricks with Ruby on Rails, the popular web development framework. These screencasts are short and focus on one technique so you can quickly move on to applying it to your own project. The topics are geared toward the intermediate Rails developer, but beginners and experts will get something out of it as well."
+description = "Each day we post the most thought provoking articles we find. We collect these articles to discuss them on the FeedForward Podcast and http://feedforward.io so that we can learn from each other's experiences. The topics are geared towards people interested in technology, improving their careers, and the impact they can make on the world."
 keywords = "technology, programming, articles, stories"
 image = "http://railscasts.com/images/railscasts_cover.jpg"
-ext = 'mp4'
+ext = 'mp3'
 
 xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:media" => "http://search.yahoo.com/mrss/",  :version => "2.0" do
   xml.channel do
