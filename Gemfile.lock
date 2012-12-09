@@ -178,6 +178,7 @@ DEPENDENCIES
   mysql2
   paperclip (~> 3.3.1)
   rails (~> 3.2.8)
+  rake (~> 10.0.2)
   rvm-capistrano
   sass-rails (~> 3.2.3)
   sqlite3
