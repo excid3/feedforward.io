@@ -7,15 +7,26 @@
 <hr />
 
 <h4>Feed Contributors</h4>
+
 <div class="contributor">
-  <%= gravatar_image_tag("excid3@gmail.com", gravatar: {size: 60, default: "mm"}) %>
-  <div class="name">Chris Oliver</div>
-  <div class="site"><%= link_to "excid3.com", "http://excid3.com" %></div>
-  <div class="twitter"><%= link_to "@excid3", "https://twitter.com/excid3" %></div>
+  <%= link_to gravatar_image_tag("excid3@gmail.com", gravatar: {size: 60, default: "mm"}), "http://excid3.com", target: "_blank" %>
+  <div class="name"><%= link_to "Chris Oliver", "http://excid3.com" %></div>
+  <div class="twitter">
+    <a href="https://twitter.com/excid3" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @excid3</a>
+  </div>
 </div>
 <div class="contributor">
-  <%= gravatar_image_tag("cosmodrome@gmail.com", gravatar: {size: 60, default: "mm"}) %>
-  <div class="name">Rob Long</div>
-  <div class="site"><%= link_to "archetyp.al", "http://archetyp.al/", target: "_blank" %></div>
-  <div class="twitter"><%= link_to "@plantimals", "https://twitter.com/plantimals", target: "_blank" %></div>
+  <%= link_to gravatar_image_tag("cosmodrome@gmail.com", gravatar: {size: 60, default: "mm"}), "http://archetyp.al", target: "_blank" %>
+  <div class="name"><%= link_to "Rob Long", "http://archetyp.al/", target: "_blank" %></div>
+  <div class="twitter">
+    <a href="https://twitter.com/plantimals" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @plantimals</a>
+  </div>
+</div>
+
+<hr />
+
+<div>
+  <strong>Have an article to submit? Want to join us?</strong>
+  <br/>
+  <%= mail_to "chris@excid3.com?subject=I+want+to+join+FeedForward.io!", "Email us" %> or <%= link_to "send us a tweet", "https://twitter.com/intent/tweet?text=%40excid3+%40plantimals+I+want+to+join+FeedForward.io%21&related=excid3,plantimals" %>.
 </div>
