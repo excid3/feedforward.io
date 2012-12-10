@@ -32,4 +32,21 @@ class PodcastsController < ApplicationController
   def edit
     @podcast = Podcast.find params[:id]
   end
+
+  def update
+    @podcast = Podcast.find params[:id]
+
+    if @podcast.update_attributes params[:podcast]
+      redirect_to podcasts_path, notice: "Podcast was successfully created."
+    else
+      render action: "edit"
+    end
+  end
+
+  def destroy
+    @podcast = Podcast.find(params[:id])
+    @podcast.destroy
+
+    redirect_to links_url, notice: "Podcast was successfully removed."
+  end
 end
