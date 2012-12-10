@@ -42,8 +42,15 @@
 
   <div class="span4">
     <h4>Subscribe To Feed Forward</h4>
-    <p>iTunes</p>
-    <p>RSS</p>
+    <div>
+      <b>
+        <%= link_to podcasts_path(format: :rss) do %>
+          <i class="icon-rss"></i>
+          Podcast RSS Feed
+        <% end %>
+      </b>
+    </div>
+    <div>iTunes <small>(coming soon)</small></div>
 
     <hr />
 
