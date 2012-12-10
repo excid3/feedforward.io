@@ -1,6 +1,6 @@
-title = "FeedForward"
+title = "FeedForward Podcast"
 author = "Chris Oliver & Rob Log"
-description = "Each day we post the most thought provoking articles we find. We collect these articles to discuss them on the FeedForward Podcast and http://feedforward.io so that we can learn from each other's experiences. The topics are geared towards people interested in technology, improving their careers, and the impact they can make on the world."
+description = "Each day we post the most thought provoking articles we find on http://feedforward.io. We collect these articles to discuss them on the FeedForward Podcast and http://feedforward.io so that we can learn from each other's experiences. The topics are geared towards people interested in technology, improving their careers, and the impact they can make on the world."
 keywords = "technology, programming, articles, stories"
 image = "http://railscasts.com/images/railscasts_cover.jpg"
 ext = 'mp3'
@@ -31,10 +31,10 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
 
     @podcasts.each do |podcast|
       xml.item do
-        xml.title podcast.full_name
+        xml.title podcast.name
         xml.description podcast.description
-        xml.pubDate podcast.published_at.to_s(:rfc822)
-        xml.enclosure :url => podcast.asset_url("videos", ext), :length => podcast.file_size(ext), :type => 'video/mp4'
+        xml.pubDate podcast.created_at.to_s(:rfc822)
+        xml.enclosure :url => podcast.asset_url("videos", ext), :length => podcast.file_size(ext), :type => 'audio/mp3'
         xml.link podcast_url(podcast)
         xml.guid({:isPermaLink => "false"}, podcast.permalink)
         xml.itunes :author, author

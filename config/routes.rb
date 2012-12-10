@@ -3,5 +3,6 @@ FeedForward::Application.routes.draw do
   resources :links do
     collection { get :title }
   end
+  resources :podcasts
   root to: "links#index"
 end

@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20121209184752) do
   create_table "podcasts", :force => true do |t|
     t.string   "name"
     t.integer  "link_id"
+    t.text     "description"
+    t.string   "duration"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "audio_file_name"
