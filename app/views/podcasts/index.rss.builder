@@ -12,7 +12,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
     xml.description description
     xml.language 'en'
     xml.pubDate @podcasts.first.created_at.to_s(:rfc822)
-    xml.lastBuildDate @podcasts.first.created_.to_s(:rfc822)
+    xml.lastBuildDate @podcasts.first.created_at.to_s(:rfc822)
     xml.itunes :author, author
     xml.itunes :keywords, keywords
     xml.itunes :explicit, 'clean'
@@ -34,9 +34,9 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
         xml.title podcast.name
         xml.description podcast.description
         xml.pubDate podcast.created_at.to_s(:rfc822)
-        xml.enclosure :url => podcast.asset_url("videos", ext), :length => podcast.file_size(ext), :type => 'audio/mp3'
+        xml.enclosure :url => "#{request.protocol}#{request.host_with_port}#{podcast.audio.url}", :length => podcast.audio_file_size, :type => 'audio/mp3'
         xml.link podcast_url(podcast)
-        xml.guid({:isPermaLink => "false"}, podcast.permalink)
+        xml.guid({:isPermaLink => "false"}, podcast_url(podcast))
         xml.itunes :author, author
         xml.itunes :subtitle, truncate(podcast.description, :length => 150)
         xml.itunes :summary, podcast.description
