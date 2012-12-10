@@ -7,28 +7,33 @@
         Posted <%= time_ago_in_words @podcast.created_at %> ago
       </div>
 
-      <%= link_to @podcast.audio.url, target: "_blank" do %>
-        <strong>
-        <i class="icon-headphones"></i>
-        <%= @podcast.name %>
-      </strong>
-    <% end %>
+      <div>
+        <%= link_to @podcast.audio.url, target: "_blank" do %>
+          <strong><i class="icon-headphones"></i> <%= @podcast.name %></strong>
+        <% end %>
+      </div>
 
-      <br />
       <br />
 
       <% if user_signed_in? %>
         <div class="link-actions">
-        <%= link_to edit_podcast_path(@podcast) do %>
-          <i class="icon-cog"></i>
+          <%= link_to edit_podcast_path(@podcast) do %>
+            <i class="icon-cog"></i>
+          <% end %>
+          <%= link_to @podcast, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="icon-trash"></i>
+          <% end %>
+        </div>
       <% end %>
-        <%= link_to @podcast, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <i class="icon-trash"></i>
-      <% end %>
-      </div>
-    <% end %>
 
       <p><%= @podcast.description.html_safe %></p>
+
+      <div>
+        <%= link_to @podcast.audio.url, class: "btn" do %>
+          <i class="icon-download-alt"></i> Download Episode
+        <small><%= number_to_human_size @podcast.audio_file_size %></small>
+      <% end %>
+      </div>
 
     </div>
   </div>
