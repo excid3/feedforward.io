@@ -1,12 +1,4 @@
-<h3>About FeedForward.io</h3>
-<p>Our goal is to link to <b>only</b> the most interesting articles that we come across. They should inspire you, challenge you, and encourage you.<p>
-<p><b>We want every article to create discussions.</b></p>
-<p><%= link_to "http://feeds.feedburner.com/FeedForwardio", class: "btn btn-large btn-primary" do %>Subscribe to our RSS Feed <i class="icon-rss"></i><% end %></p>
-<p><%= link_to podcasts_path, class: "btn btn-large btn-primary" do %>Listen to our Podcast <i class="icon-headphones"></i><% end %></p>
-
-<hr />
-
-<h4>Feed Contributors</h4>
+<h4>Feed Forward Hosts</h4>
 <div class="contributor">
   <%= gravatar_image_tag("excid3@gmail.com", gravatar: {size: 60, default: "mm"}) %>
   <div class="name">Chris Oliver</div>
@@ -19,3 +11,8 @@
   <div class="site"><%= link_to "archetyp.al", "http://archetyp.al/", target: "_blank" %></div>
   <div class="twitter"><%= link_to "@plantimals", "https://twitter.com/plantimals", target: "_blank" %></div>
 </div>
+
+<% if user_signed_in? %>
+  <h4>Admin</h4>
+  <%= link_to "Upload a Podcast", new_podcast_path, class: "btn" %>
+<% end %>

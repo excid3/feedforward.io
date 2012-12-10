@@ -11,8 +11,8 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
     xml.link 'http://feedforward.io'
     xml.description description
     xml.language 'en'
-    xml.pubDate @podcast.first.created_at.to_s(:rfc822)
-    xml.lastBuildDate @podcast.first.created_.to_s(:rfc822)
+    xml.pubDate @podcasts.first.created_at.to_s(:rfc822)
+    xml.lastBuildDate @podcasts.first.created_.to_s(:rfc822)
     xml.itunes :author, author
     xml.itunes :keywords, keywords
     xml.itunes :explicit, 'clean'

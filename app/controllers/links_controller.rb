@@ -40,6 +40,7 @@ class LinksController < ApplicationController
   def edit
     @link = Link.find(params[:id])
     @link.build_podcast if @link.podcast.nil?
+    @podcast = @link.podcast
   end
 
   # POST /links

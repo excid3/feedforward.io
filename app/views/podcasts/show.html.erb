@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="span8">
+    <h1><%= link_to "The Feed Forward Podcast", podcasts_path %></h1>
+
+    <div class="link well well-small">
+      <div class="details">
+        Posted <%= time_ago_in_words @podcast.created_at %> ago
+      </div>
+
+      <%= link_to @podcast.audio.url, target: "_blank" do %>
+        <strong>
+        <i class="icon-headphones"></i>
+        <%= @podcast.name %>
+      </strong>
+    <% end %>
+
+      <br />
+      <br />
+
+      <% if user_signed_in? %>
+        <div class="link-actions">
+        <%= link_to edit_podcast_path(@podcast) do %>
+          <i class="icon-cog"></i>
+      <% end %>
+        <%= link_to @podcast, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="icon-trash"></i>
+      <% end %>
+      </div>
+    <% end %>
+
+      <p><%= @podcast.description.html_safe %></p>
+
+    </div>
+  </div>
+
+  <div class="span4">
+    <h4>Subscribe To Feed Forward</h4>
+    <p>iTunes</p>
+    <p>RSS</p>
+
+    <hr />
+
+    <%= render "about" %>
+  </div>
+</div>

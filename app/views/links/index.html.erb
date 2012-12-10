@@ -15,7 +15,7 @@
         <% if link.podcast %>
           <br />
           <span class="badge badge-success">
-            <%= link_to link.podcast.audio.url do %>
+            <%= link_to podcast_path(link.podcast) do %>
               <i class="icon-headphones"></i> Podcast Available
             <% end %>
           </span>

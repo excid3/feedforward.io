@@ -1,0 +1,40 @@
+<%= form_for(@podcast, class: "form-horizontal") do |f| %>
+  <% if @podcast.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+      <p><%= pluralize(@podcast.errors.count, "error") %> prohibited this podcast from being saved:</p>
+
+      <ul>
+      <% @podcast.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :link, "Related Link", class: "control-label" %>
+    <div class="controls">
+      <%= f.collection_select :link_id, Link.all, :id, :title, {include_blank: true}, {disabled: @podcast.link_id?} %>
+    </div>
+  </div>
+
+  <div><%= f.text_field :name, placeholder: "Podcast Name And Episode Number", class: "span6" %></div>
+
+  <div><%= f.text_area :description, placeholder: "Description", class: "span6", rows: 8 %></div>
+
+  <div class="control-group">
+    <%= f.label :audio, "Audio File (MP3)", class: "control-label" %>
+    <div class="controls">
+      <%= f.file_field :audio %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :duration, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :duration, placeholder: "MM:SS" %>
+    </div>
+  </div>
+
+  <div><%= f.submit "Upload", class: "btn" %></div>
+<% end %>
