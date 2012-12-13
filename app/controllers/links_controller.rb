@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 class LinksController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
 
