@@ -1,5 +1,3 @@
-#encoding: UTF-8
-
 class LinksController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
 
@@ -92,6 +90,7 @@ class LinksController < ApplicationController
   def title
     require 'open-uri'
     open(params[:page]) do |f|
+      f.encode!("UTF-8")
       render text: f.read[/<title>\s*(.*)\s*<\/title>/iu, 1]
     end
   end
