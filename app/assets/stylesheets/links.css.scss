@@ -65,6 +65,14 @@ input[type="file"] { line-height: normal; }
   input[type="submit"] { margin-bottom: 10px; }
 }
 
+.about {
+  max-width: 278px;
+}
+
+.btn-min-width {
+  min-width: 240px;
+}
+
 .contributor {
   position: relative;
   margin-left: 20px;
