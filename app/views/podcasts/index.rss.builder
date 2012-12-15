@@ -34,7 +34,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
         xml.title podcast.name
         xml.description podcast.description
         xml.pubDate podcast.created_at.to_s(:rfc822)
-        xml.enclosure :url => "#{request.protocol}#{request.host_with_port}#{podcast.audio.url}", :length => podcast.audio_file_size, :type => 'audio/mp3'
+        xml.enclosure :url => go_podcast_url(podcast), :length => podcast.audio_file_size, :type => 'audio/mp3'
         xml.link podcast_url(podcast)
         xml.guid({:isPermaLink => "false"}, podcast_url(podcast))
         xml.itunes :author, author

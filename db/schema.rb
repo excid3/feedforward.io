@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209184752) do
+ActiveRecord::Schema.define(:version => 20121215221248) do
+
+  create_table "link_hits", :force => true do |t|
+    t.string   "linkable_type"
+    t.string   "linkable_id"
+    t.integer  "count"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "links", :force => true do |t|
     t.string   "title"

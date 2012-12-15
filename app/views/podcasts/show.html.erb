@@ -8,7 +8,7 @@
       </div>
 
       <div>
-        <%= link_to @podcast.audio.url, target: "_blank" do %>
+        <%= link_to go_podcast_path(@podcast), target: "_blank" do %>
           <strong><i class="icon-headphones"></i> <%= @podcast.name %></strong>
         <% end %>
       </div>
@@ -29,7 +29,7 @@
       <p><%= @podcast.description.html_safe %></p>
 
       <div>
-        <%= link_to @podcast.audio.url, class: "btn" do %>
+        <%= link_to go_podcast_path(@podcast), class: "btn" do %>
           <i class="icon-download-alt"></i> Download Episode
         <small><%= number_to_human_size @podcast.audio_file_size %></small>
       <% end %>

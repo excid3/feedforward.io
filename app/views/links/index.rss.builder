@@ -17,7 +17,7 @@ xml.rss "xmlns:media" => "http://search.yahoo.com/mrss/",  :version => "2.0" do
         xml.title article.title
         xml.description article.url
         xml.pubDate article.created_at.to_s(:rfc822)
-        xml.link article.url
+        xml.link go_link_url(article)
         xml.guid article.url
       end
     end

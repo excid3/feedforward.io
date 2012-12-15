@@ -1,8 +1,7 @@
 class LinksController < ApplicationController
-  before_filter :authenticate_user!, except: [:index]
+  before_filter :authenticate_user!, except: [:index, :show, :go]
 
   # GET /links
-  # GET /links.json
   def index
     @links = Link.order("created_at DESC")
     @link = Link.new
@@ -14,26 +13,22 @@ class LinksController < ApplicationController
     end
   end
 
+  # GET /links/1/go
+  def go
+    @link = Link.find(params[:id])
+    @link_hit = LinkHit.find_or_create_by_linkable_type_and_linkable_id("link", @link.id)
+    @link_hit.increment! :count
+    redirect_to @link.url
+  end
+
   # GET /links/1
-  # GET /links/1.json
   def show
     @link = Link.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @link }
-    end
   end
 
   # GET /links/new
-  # GET /links/new.json
   def new
     @link = Link.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @link }
-    end
   end
 
   # GET /links/1/edit
@@ -44,47 +39,32 @@ class LinksController < ApplicationController
   end
 
   # POST /links
-  # POST /links.json
   def create
     @link = current_user.links.new(params[:link])
 
-    respond_to do |format|
-      if @link.save
-        format.html { redirect_to links_path, notice: 'Link was successfully created.' }
-        format.json { render json: @link, status: :created, location: @link }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
-      end
+    if @link.save
+      redirect_to links_path, notice: 'Link was successfully created.'
+    else
+      render action: "new"
     end
   end
 
   # PUT /links/1
-  # PUT /links/1.json
   def update
     @link = Link.find(params[:id])
 
-    respond_to do |format|
-      if @link.update_attributes(params[:link])
-        format.html { redirect_to @link, notice: 'Link was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
-      end
+    if @link.update_attributes(params[:link])
+      redirect_to @link, notice: 'Link was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 
   # DELETE /links/1
-  # DELETE /links/1.json
   def destroy
     @link = Link.find(params[:id])
     @link.destroy
-
-    respond_to do |format|
-      format.html { redirect_to links_url, notice: "Link was successfully removed" }
-      format.json { head :no_content }
-    end
+    redirect_to links_url, notice: "Link was successfully removed"
   end
 
   def title

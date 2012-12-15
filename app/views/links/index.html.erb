@@ -8,9 +8,9 @@
           Posted <%= time_ago_in_words link.created_at %> ago by <%= link.user.try(:full_name) %>
         </div>
 
-        <%= link_to link.url, target: "_blank" do %><strong><%= link.title %></strong><% end %>
+        <%= link_to go_link_path(link), target: "_blank" do %><strong><%= link.title %></strong><% end %>
         <br/>
-        <%= link_to link.url, target: "_blank" do %><small><%= truncate link.url, length: 80 %></small><% end %>
+        <%= link_to go_link_path(link), target: "_blank" do %><small><%= truncate link.url, length: 80 %></small><% end %>
 
         <% if link.podcast %>
           <br />
