@@ -1,5 +1,6 @@
 class Podcast < ActiveRecord::Base
   belongs_to :link
+  has_one :link_hit, as: :linkable
   has_attached_file :audio
 
   attr_accessible :name, :audio, :link_id, :description, :duration

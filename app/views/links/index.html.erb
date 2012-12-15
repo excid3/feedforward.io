@@ -12,6 +12,10 @@
         <br/>
         <%= link_to go_link_path(link), target: "_blank" do %><small><%= truncate link.url, length: 80 %></small><% end %>
 
+        <% if user_signed_in? %>
+          <div class="pull-right hits"><span class="label"><%= pluralize link.link_hit.try(:count) || 0, "hit" %></span></div>
+        <% end %>
+
         <% if link.podcast %>
           <br />
           <span class="badge badge-success">

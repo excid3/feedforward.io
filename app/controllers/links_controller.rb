@@ -16,7 +16,7 @@ class LinksController < ApplicationController
   # GET /links/1/go
   def go
     @link = Link.find(params[:id])
-    @link_hit = LinkHit.find_or_create_by_linkable_type_and_linkable_id("link", @link.id)
+    @link_hit = LinkHit.find_or_create_by_linkable_type_and_linkable_id("Link", @link.id)
     @link_hit.increment! :count
     redirect_to @link.url
   end
