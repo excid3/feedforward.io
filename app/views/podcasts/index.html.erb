@@ -9,9 +9,8 @@
         </div>
 
         <div>
-          <%= link_to podcast, target: "_blank" do %>
-            <strong><i class="icon-headphones"></i> <%= podcast.name %></strong>
-          <% end %>
+          <%= link_to podcast, target: "_blank" do %><strong><i class="icon-headphones"></i> <%= podcast.name %></strong><% end %>
+          <small><%= podcast.duration %></small>
         </div>
 
         <br />
