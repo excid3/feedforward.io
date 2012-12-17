@@ -5,6 +5,10 @@ body {
 
 input[type="file"] { line-height: normal; }
 
+@media (max-width: 480px) {
+  .navbar .brand { font-size: 16px; }
+}
+
 .well { box-shadow:none !important; }
 
 .field_with_errors {
