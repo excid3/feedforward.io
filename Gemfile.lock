@@ -161,6 +161,9 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    will_paginate (3.0.3)
+    will_paginate-bootstrap (0.2.1)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
@@ -185,3 +188,5 @@ DEPENDENCIES
   thin (~> 1.5.0)
   twitter-bootstrap-rails (~> 2.1.6)
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0.3)
+  will_paginate-bootstrap (~> 0.2.1)

@@ -3,7 +3,7 @@ class LinksController < ApplicationController
 
   # GET /links
   def index
-    @links = Link.order("created_at DESC").limit(20)
+    @links = Link.order("created_at DESC").paginate(page: params[:page], per_page: 20)
     @link = Link.new
 
     respond_to do |format|

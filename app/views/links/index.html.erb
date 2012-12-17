@@ -37,6 +37,8 @@
         <% end %>
       </div>
     <% end %>
+
+    <%= will_paginate @links, renderer: BootstrapPagination::Rails %>
   </div>
 
   <div class="span4">
