@@ -3,7 +3,7 @@ class LinksController < ApplicationController
 
   # GET /links
   def index
-    @links = Link.order("created_at DESC")
+    @links = Link.order("created_at DESC").limit(20)
     @link = Link.new
 
     respond_to do |format|
