@@ -21,6 +21,9 @@ input[type="file"] { line-height: normal; }
   word-wrap: break-word;
 
   a {
+    color: #444;
+    &:hover { color: #157ab5 }
+
     small {
       color: #444;
       font-size: 0.8em;
