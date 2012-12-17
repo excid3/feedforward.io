@@ -5,10 +5,6 @@ body {
 
 input[type="file"] { line-height: normal; }
 
-@media (max-width: 480px) {
-  .navbar .brand { font-size: 16px; }
-}
-
 .well { box-shadow:none !important; }
 
 .field_with_errors {
@@ -22,6 +18,7 @@ input[type="file"] { line-height: normal; }
 
 .link {
   font-size: 1.2em;
+  overflow: hidden;
   word-wrap: break-word;
 
   a {
@@ -103,4 +100,10 @@ input[type="file"] { line-height: normal; }
   font-weight: normal;
 
   a { color: white; }
+}
+
+// Phone in portrait
+@media (max-width: 480px) {
+  .navbar .brand { font-size: 16px; }
+  .link .details { float: none; }
 }
