@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
-
 <%= render partial: "link", locals: {link: @link} %>
 
-<h4>Comments</h4>
-
-<% @link.comments.each do |comment| %>
-  <div class="comment">
-    <div class="avatar">
-      <%= gravatar_image_tag(comment.user.email, gravatar: {size: 60, default: "mm"}) %>
-    </div>
-
-    <div>
-      <small><%= comment.user.full_name %> commented</small>
-    </div>
-
-    <div class="body">
-      <%= comment.body %>
-    </div>
-  </div>
-
-  <hr />
-<% end %>
-
+<h4><%= pluralize @link.comments.count, "Comment" %></h4>
 
 <% if user_signed_in? %>
+
+  <% @link.comments.each do |comment| %>
+    <div class="comment">
+      <div class="avatar">
+        <%= gravatar_image_tag(comment.user.email, gravatar: {size: 60, default: "mm"}) %>
+      </div>
+
+      <div>
+        <small><%= link_to comment.user.full_name, "https://twitter.com/#{comment.user.twitter}" %> commented</small>
+      </div>
+
+      <div class="body">
+        <%= formatted_body comment.body %>
+      </div>
+    </div>
+
+    <hr />
+  <% end %>
+
   <div class="comment">
     <div class="avatar">
       <%= gravatar_image_tag(current_user.email, gravatar: {size: 60, default: "mm"}) %>
@@ -32,9 +30,14 @@
       <%= form_for [@link, @comment] do |f| %>
         <%= f.text_area :body, rows: 4 %>
 
-        <div class="pull-left">Holy shit this supports markdown</div>
+        <div class="pull-left">Holy shit this supports <%= link_to "markdown syntax", "http://daringfireball.net/projects/markdown/syntax" %>!</div>
         <div class="pull-right"><%= f.submit class: "btn" %></div>
       <% end %>
     </div>
   </div>
+
+<% else %>
+
+  <p class="center"><%= mail_to "chris@excid3.com?subject=I+want+to+join+FeedForward.io!", "Email us" %> or something to join the conversation.</p>
+
 <% end %>

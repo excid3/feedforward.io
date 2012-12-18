@@ -5,6 +5,8 @@ body {
 
 input[type="file"] { line-height: normal; }
 
+.center { text-align: center; }
+
 .well { box-shadow:none !important; }
 
 .field_with_errors {
@@ -73,13 +75,9 @@ input[type="file"] { line-height: normal; }
   input[type="submit"] { margin-bottom: 10px; }
 }
 
-.about {
-  max-width: 278px;
-}
+.about { max-width: 278px; }
 
-.btn-min-width {
-  min-width: 240px;
-}
+.btn-min-width { min-width: 240px; }
 
 .contributor {
   position: relative;
