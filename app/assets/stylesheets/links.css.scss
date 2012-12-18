@@ -88,18 +88,45 @@ input[type="file"] { line-height: normal; }
   min-height: 80px;
 
   img {
-    border: 1px solid #ccc;
-    border-radius: 50%;
+    border-radius: 4px;
     position: absolute;
     top: 0;
     left: 0;
   }
 }
 
-.badge {
+.badge, .label {
   font-weight: normal;
 
-  a { color: white; }
+  a {
+    color: white;
+    &:hover { color: white; }
+  }
+}
+
+.comment {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 80px;
+  min-height: 80px;
+
+  .avatar {
+    img {
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+  }
+
+  .body {
+    textarea {
+      -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+      box-sizing: border-box;         /* Opera/IE 8+ */
+      width: 100%;
+    }
+  }
 }
 
 // Phone in portrait

@@ -3,39 +3,7 @@
 <div class="row">
   <div class="span8">
     <% @links.each do |link| %>
-      <div class="link well well-small">
-        <div class="details">
-          Posted <%= time_ago_in_words link.created_at %> ago by <%= link.user.try(:full_name) %>
-        </div>
-
-        <%= link_to go_link_path(link), target: "_blank" do %><strong><%= link.title %></strong><% end %>
-        <br/>
-        <%= link_to go_link_path(link), target: "_blank" do %><small><%= truncate link.url, length: 80 %></small><% end %>
-
-        <% if user_signed_in? %>
-          <div class="pull-right hits"><span class="label"><%= pluralize link.link_hit.try(:count) || 0, "hit" %></span></div>
-        <% end %>
-
-        <% if link.podcast %>
-          <br />
-          <span class="badge badge-success">
-            <%= link_to podcast_path(link.podcast) do %>
-              <i class="icon-headphones"></i> Podcast Available
-            <% end %>
-          </span>
-        <% end %>
-
-        <% if user_signed_in? %>
-          <div class="link-actions">
-            <%= link_to edit_link_path(link) do %>
-              <i class="icon-cog"></i>
-            <% end %>
-            <%= link_to link, method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <i class="icon-trash"></i>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <%= render partial: "link", locals: {link: link} %>
     <% end %>
 
     <%= will_paginate @links, renderer: BootstrapPagination::Rails %>

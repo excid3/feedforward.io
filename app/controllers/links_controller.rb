@@ -24,6 +24,7 @@ class LinksController < ApplicationController
   # GET /links/1
   def show
     @link = Link.find(params[:id])
+    @comment = Comment.new
   end
 
   # GET /links/new

@@ -1,23 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @link.title %>
-</p>
+<%= render partial: "link", locals: {link: @link} %>
 
-<p>
-  <b>Url:</b>
-  <%= @link.url %>
-</p>
+<h4>Comments</h4>
 
-<% if @link.podcast %>
-<p>
-  <b>Podcast:</b>
-  <%= link_to @link.podcast.audio.url do %>
-    <i class="icon-headphones"></i>
-  <% end %>
-</p>
+<% @link.comments.each do |comment| %>
+  <div class="comment">
+    <div class="avatar">
+      <%= gravatar_image_tag(comment.user.email, gravatar: {size: 60, default: "mm"}) %>
+    </div>
+
+    <div>
+      <small><%= comment.user.full_name %> commented</small>
+    </div>
+
+    <div class="body">
+      <%= comment.body %>
+    </div>
+  </div>
+
+  <hr />
 <% end %>
 
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+
+<% if user_signed_in? %>
+  <div class="comment">
+    <div class="avatar">
+      <%= gravatar_image_tag(current_user.email, gravatar: {size: 60, default: "mm"}) %>
+    </div>
+    <div class="body">
+      <%= form_for [@link, @comment] do |f| %>
+        <%= f.text_area :body, rows: 4 %>
+
+        <div class="pull-left">Holy shit this supports markdown</div>
+        <div class="pull-right"><%= f.submit class: "btn" %></div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
