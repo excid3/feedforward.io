@@ -5,6 +5,7 @@ keywords = "technology, programming, articles, stories"
 image = "http://railscasts.com/images/railscasts_cover.jpg"
 ext = 'mp3'
 
+xml.instruct!
 xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:media" => "http://search.yahoo.com/mrss/",  :version => "2.0" do
   xml.channel do
     xml.title title
