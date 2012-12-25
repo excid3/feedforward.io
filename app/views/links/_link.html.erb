@@ -1,23 +1,18 @@
 <div class="link well well-small">
   <div class="details">
-    Posted <%= time_ago_in_words link.created_at %> ago by <%= link.user.try(:full_name) %>
+    <%= link_to avatar_image(link.user.email), "#", rel: "tooltip", data: {placement: "left"}, title: "Posted by #{link.user.full_name} #{time_ago_in_words(link.created_at)} ago" %>
   </div>
 
   <%= link_to go_link_path(link), target: "_blank" do %><strong><%= link.title %></strong><% end %>
   <br/>
   <%= link_to go_link_path(link), target: "_blank" do %><small><%= truncate link.url, length: 80 %></small><% end %>
 
-  <% if user_signed_in? %>
-    <div class="pull-right hits"><span class="label"><%= pluralize link.link_hit.try(:count) || 0, "hit" %></span></div>
-  <% end %>
-  <div class="pull-right hits">
-    <span class="label <%= "label-warning" if link.comments.count > 0 %>"><%= link_to link do %><i class="icon-comments"></i> <%= pluralize(link.comments.count, "comment") %><% end %>
-    </span>
-  </div>
+  <br />
+
+  <span class="label <%= "label-warning" if link.comments.count > 0 %>"><%= link_to link do %><i class="icon-comments"></i> <%= pluralize(link.comments.count, "comment") %><% end %></span>
 
   <% if link.podcast %>
-    <br />
-    <span class="badge badge-warning">
+    <span class="label label-warning">
       <%= link_to podcast_path(link.podcast) do %>
         <i class="icon-headphones"></i> Podcast Available
       <% end %>
@@ -25,6 +20,8 @@
   <% end %>
 
   <% if user_signed_in? %>
+    <span class="label"><%= pluralize link.link_hit.try(:count) || 0, "hit" %></span>
+
     <div class="link-actions">
       <%= link_to edit_link_path(link) do %>
         <i class="icon-cog"></i>

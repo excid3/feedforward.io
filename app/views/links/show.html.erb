@@ -1,13 +1,14 @@
 <%= render partial: "link", locals: {link: @link} %>
 
 <h4><%= pluralize @link.comments.count, "Comment" %></h4>
+<hr />
 
 <% if user_signed_in? %>
 
   <% @link.comments.each do |comment| %>
     <div class="comment">
       <div class="avatar">
-        <%= gravatar_image_tag(comment.user.email, gravatar: {size: 60, default: "mm"}) %>
+        <%= avatar_image(comment.user.email) %>
       </div>
 
       <div>
@@ -24,7 +25,7 @@
 
   <div class="comment">
     <div class="avatar">
-      <%= gravatar_image_tag(current_user.email, gravatar: {size: 60, default: "mm"}) %>
+      <%= avatar_image(current_user.email) %>
     </div>
     <div class="body">
       <%= form_for [@link, @comment] do |f| %>

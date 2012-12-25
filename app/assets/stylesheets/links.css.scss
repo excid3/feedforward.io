@@ -37,6 +37,16 @@ input[type="file"] { line-height: normal; }
     color: #888;
     float: right;
     font-size: 0.7em;
+    opacity: .25;
+    -webkit-transition: ease-out all 300ms;
+    -webkit-transition-delay: 0ms;
+    -moz-transition: ease-out all 300ms 0ms;
+    -o-transition: ease-out all 300ms 0ms;
+    transition: ease-out all 300ms 0ms;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   .hits {
@@ -44,12 +54,11 @@ input[type="file"] { line-height: normal; }
   }
 
   .link-actions {
-    float: right;
     display: none;
   }
 
   &:hover {
-    .link-actions { display: block; }
+    .link-actions { display: inline-block; }
   }
 }
 
@@ -81,12 +90,10 @@ input[type="file"] { line-height: normal; }
 
 .contributor {
   position: relative;
-  margin-left: 20px;
-  padding-left: 80px;
+  padding-left: 60px;
   min-height: 80px;
 
   img {
-    border-radius: 4px;
     position: absolute;
     top: 0;
     left: 0;
@@ -104,16 +111,14 @@ input[type="file"] { line-height: normal; }
 
 .comment {
   position: relative;
-  margin-left: 20px;
-  padding-left: 80px;
+  padding-left: 60px;
   min-height: 80px;
 
   .avatar {
     img {
-    border-radius: 4px;
-    position: absolute;
-    top: 0;
-    left: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 
