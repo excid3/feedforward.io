@@ -1,4 +1,4 @@
-<div class="link well well-small">
+<div class="link">
   <div class="details">
     <%= link_to avatar_image(link.user.email), "#", rel: "tooltip", data: {placement: "left"}, title: "Posted by #{link.user.full_name} #{time_ago_in_words(link.created_at)} ago" %>
   </div>
@@ -32,3 +32,5 @@
     </div>
   <% end %>
 </div>
+
+<hr />
