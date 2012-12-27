@@ -1,6 +1,6 @@
 module ApplicationHelper
   def avatar_image(email, options=nil)
-    options ||= {gravatar: {size: 48, default: "mm"}, class: "img-rounded"}
+    options ||= {gravatar: {size: 48, default: "mm"}, class: "img-circle"}
     gravatar_image_tag(email, options)
   end
 
