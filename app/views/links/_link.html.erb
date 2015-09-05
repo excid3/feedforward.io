@@ -5,7 +5,10 @@
         <%= render partial: "votes", locals: {link: link} %>
       </div>
     </div>
-    <div class="col-sm-11">
+    <div class="col-sm-2">
+      <%= image_tag(link.image, class: "img-responsive img-rounded") %>
+    </div>
+    <div class="col-sm-9">
       <h2><%= link_to link.title, link.url, target: :blank %></h2>
       <p class="description"><%= link.description %></p>
       <p class="submitted-by">
