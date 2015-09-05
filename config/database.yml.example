@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: feedforward_dev
+  username: chris
+  password:
+  host: localhost

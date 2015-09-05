@@ -1,0 +1,12 @@
+<div class="text-center">
+  <% if link.voted_by? current_user %>
+    <%= link_to fa_icon("heart", class: "text-hearted"), link_vote_path(link), method: :delete, remote: true %>
+  <% elsif user_signed_in? %>
+    <%= link_to fa_icon("heart-o", class: "text-muted"), link_vote_path(link), method: :post, remote: true, data: {toggle: "tooltip"}, title: "Recommend this" %>
+  <% else %>
+    <%= link_to fa_icon("heart-o", class: "text-muted"), new_user_registration_path, data: {toggle: "tooltip"}, title: "Sign up to recommend this" %>
+  <% end %>
+
+  <div class="text-muted"><%= link.votes_count %></div>
+</div>
+

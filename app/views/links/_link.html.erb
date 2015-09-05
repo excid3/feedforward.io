@@ -1,0 +1,18 @@
+<%= div_for link, class: "recommended-link" do %>
+  <div class="row">
+    <div class="col-sm-1">
+      <div class="votes">
+        <%= render partial: "votes", locals: {link: link} %>
+      </div>
+    </div>
+    <div class="col-sm-11">
+      <h2><%= link_to link.title, link.url, target: :blank %></h2>
+      <p class="description"><%= link.description %></p>
+      <p class="submitted-by">
+        <%= link.link_type.capitalize %> submitted by <%= link.user.name %>
+        | <%= link_to "View Comments", link %>
+        <% if user_signed_in? && link.user == current_user %>| <%= link_to "Edit", edit_link_path(link) %><% end %>
+      </p>
+    </div>
+  </div>
+<% end %>
