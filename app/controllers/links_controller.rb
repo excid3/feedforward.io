@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:edit, :update, :destroy]
+  before_action :set_link, only: [:edit, :update, :destroy, :go]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /links
@@ -62,6 +62,11 @@ class LinksController < ApplicationController
       format.html { redirect_to links_url, notice: 'Link was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def go
+    @link.increment! :view_count
+    redirect_to @link.url
   end
 
   private

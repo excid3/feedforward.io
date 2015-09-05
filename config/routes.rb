@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   resources :links, path: "recommended" do
     resource :vote
+
+    member do
+      get :go
+    end
   end
 
   root to: "links#index"
