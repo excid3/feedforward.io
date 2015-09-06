@@ -12,7 +12,7 @@ class Link < ActiveRecord::Base
     self.title ||= og.title # => "Open Graph protocol"
     self.link_type ||= og.type || "Article" # => "website"
     self.description ||= og.description # => "The Open Graph protocol enables any web page to become a rich object in a social graph."
-    self.image = og.images.first
+    self.image ||= og.images.first
   end
 
   def voted_by?(user)
