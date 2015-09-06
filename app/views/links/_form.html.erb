@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label :url %>
-    <%= f.text_field :url, placeholder: "URL", class: "form-control" %>
+    <%= f.text_field :url, placeholder: "URL", class: "form-control", autofocus: true %>
   </div>
 
   <% if @link.persisted? %>
