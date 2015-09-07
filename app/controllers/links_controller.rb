@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:edit, :update, :destroy, :go]
+  before_action :set_link, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /links
@@ -65,6 +65,7 @@ class LinksController < ApplicationController
   end
 
   def go
+    @link = Link.find(params[:id])
     @link.increment! :view_count
     redirect_to @link.url
   end
