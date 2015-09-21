@@ -11,7 +11,7 @@
       <p class="submitted-by">
         <%= link.link_type.capitalize %> submitted by <%= link.user.name %>
         | <%= pluralize link.view_count, "view" %>
-        | <%= link_to "View Comments", link %>
+      | <%= link_to "View Comments", link, class: "disqus-comment-count", data: { disqus_url: link_path(link) } %>
         <% if user_signed_in? && link.user == current_user %>| <%= link_to "Edit", edit_link_path(link) %><% end %>
       </p>
     </div>
