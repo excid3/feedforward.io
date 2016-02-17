@@ -9,7 +9,7 @@
       <h2><%= link_to link.title, go_link_path(link), target: :blank %></h2>
       <p class="description"><%= link.description %></p>
       <p class="submitted-by">
-        <%= link.link_type.capitalize %> submitted by <%= link.user.name %>
+        <%= link.link_type.capitalize %> submitted by <%= link.user.try(:name) %>
         | <%= pluralize link.view_count, "view" %>
         | <%= link_to link do %>
             <% content_tag :span, "Comments", class: "disqus-comment-count", data: { disqus_url: link_url(link) } %>
