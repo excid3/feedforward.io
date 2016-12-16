@@ -1,0 +1,10 @@
+development:
+  adapter: postgresql
+  host: 127.0.0.1
+  database: feedforward_dev
+  username: chris
+  encoding: utf8
+  pool: 20
+
+production:
+  url: <%= ENV["DATABASE_URL"] %>
