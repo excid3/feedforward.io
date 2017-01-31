@@ -18,6 +18,13 @@
 </head>
 <body>
 
+  <% if user_masquerade? %>
+    <div class="alert alert-warning text-center" style="margin-bottom: 0px">
+      You're logged in as <%= current_user.name %>.
+      <%= link_to back_masquerade_path(current_user) do %>Logout <%= fa_icon "times" %><% end %>
+    </div>
+  <% end %>
+
   <%= render partial: "shared/navbar" %>
 
   <div class="container">
