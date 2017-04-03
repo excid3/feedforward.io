@@ -21,7 +21,7 @@
 
 
       <%= form_for Link.new, html: {class: "navbar-form navbar-left"} do |f| %>
-        <%= f.text_field :url, class: "form-control", placeholder: "Share a link", autofocus: true %>
+        <%= f.text_field :url, class: "form-control", placeholder: "Share a link", autofocus: true, style: "width: 30em" %>
         <%= f.submit "Share", class: "btn btn-primary" %>
       <% end %>
 

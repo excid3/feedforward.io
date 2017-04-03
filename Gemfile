@@ -44,7 +44,3 @@ gem 'devise_masquerade', '~> 0.2.0'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails', '~> 4.7.0.1'
 gem 'record_tag_helper', '~> 1.0'
-
-gem 'open_graph_reader'
-gem 'faraday_middleware'
-gem 'faraday-cookie_jar'
